@@ -1,5 +1,4 @@
 
-
 *{
   margin: 0;
   padding: 0;
@@ -17,7 +16,15 @@
   position: relative;
 }
 
-.cards img{
+.back-card{
+  position: relative;
   width: 100%;
-
+  margin-top: 5rem;
+  left: 5rem;
 }
+
+.card{
+  position: relative;
+  left: 10rem;
+}
+
