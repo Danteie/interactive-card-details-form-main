@@ -15,6 +15,25 @@ function App() {
       </div>
       {/* rigth part of the content */}
       <div className='login'>
+        <form>
+          <h1>CARDHOLDER NAME</h1>
+          <input type="text"/>
+          <h1>CARD NUMBER</h1>
+          <input type="text"/>
+          <div className='date-field'>
+            <div>
+              <h1>EXP. DATE(MM/YY)</h1>
+              <div>
+              <input type="text" className='small'/>
+              <input type="text" className='small'/>
+              </div>
+            </div>
+            <div>
+            <h1>cvc</h1>
+            <input type="text"/>
+            </div>
+          </div>
+        </form>
       </div>
 
     </div>
