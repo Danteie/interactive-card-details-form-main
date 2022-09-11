@@ -17,22 +17,23 @@ function App() {
       <div className='login'>
         <form>
           <h1>CARDHOLDER NAME</h1>
-          <input type="text"/>
+          <input type="text" placeholder='e.g Jane Appleseed'/>
           <h1>CARD NUMBER</h1>
-          <input type="text"/>
+          <input type="text" placeholder='e.g 1234 5678 9123 0000'/>
           <div className='date-field'>
-            <div>
+            <div className='dateone'>
               <h1>EXP. DATE(MM/YY)</h1>
-              <div>
-              <input type="text" className='small'/>
-              <input type="text" className='small'/>
+              <div className='inputmmyy'>
+                <input type="text" className='small' placeholder='MM'/>
+                <input type="text" className='small' placeholder='YY'/>
               </div>
             </div>
-            <div>
+            <div className='datetwo'>
             <h1>cvc</h1>
-            <input type="text"/>
+            <input type="text" placeholder='e.g. 123'/>
             </div>
           </div>
+          <button>Condirm</button>
         </form>
       </div>
 

@@ -48,8 +48,50 @@
   gap: 1rem;
 }
 
-.small{
-  width: 50px;
-  margin-right: 1rem;
+.dateone{
+  flex: 1;
 }
 
+.datetwo{
+  flex: 2;
+}
+
+.inputmmyy{
+  display: flex;
+}
+
+.small{
+  width: 80px;
+  margin-right: 0.5rem;
+}
+
+form{
+  width: 25rem;
+}
+
+input{
+  width: 100%;
+  height: 2.6rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 1.2rem;
+}
+
+form h1{
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  margin-top: 1.4rem;
+  margin-bottom: 0.8rem;
+}
+
+button{
+  width: 100%;
+  height: 3rem;
+  border-radius: 10px;
+  margin-top: 3rem;
+  background-color: hsl(278, 68%, 11%);
+  color: white;
+  font-size: 1.2rem;
+}
