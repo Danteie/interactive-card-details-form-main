@@ -17,21 +17,21 @@ function App() {
 
   function cardholder(event){
       setName(name => name = event.target.value)
-      console.log(name);
   }
 
-  function isNumber(error){
-      if(!isNaN(error)){
-        document.activeElement.style.border = '1px solid rgba(0, 0, 0, 0.2)'
-        document.activeElement.style.color = 'black'
+  function isNumber(number,id){
+      if(!isNaN(number)){
+        document.getElementById(id).style.border = '1px solid rgba(0, 0, 0, 0.2)'
+        document.getElementById(id).style.color = 'black'
       }else{
-        document.activeElement.style.border = '2px solid red'
-        document.activeElement.style.color = 'red'
+        document.getElementById(id).style.border = '2px solid red'
+        document.getElementById(id).style.color = 'red'
       } 
   }
 
   function cardNumber(event){
-      setNumber(number => number = event.target.value)  
+      setNumber(number => number = event.target.value) 
+      console.log(number);
   }
 
   function cardMonth(event){
@@ -47,10 +47,16 @@ function App() {
   }
 
 useEffect(()=>{ 
-  isNumber(number)
-  isNumber(month)
-  isNumber(year)
-  isNumber(cvc)
+  isNumber(number,"number")
+  if(month <= 12){
+    isNumber(month,"month")
+  }else{
+    alert('please eneter valid month!')
+    isNumber('a', 'month')
+  }
+  
+  isNumber(year,"year")
+  isNumber(cvc,"cvc")
 },[number,month,year,cvc])
 
   return (
@@ -68,18 +74,18 @@ useEffect(()=>{
           <h1>CARDHOLDER NAME</h1>
           <input type="text" placeholder='e.g Jane Appleseed' onChange={cardholder}/>
           <h1>CARD NUMBER</h1>
-          <input type="text" placeholder='e.g 1234 5678 9123 0000' onChange={cardNumber}/>
+          <input type="text" placeholder='e.g 1234 5678 9123 0000' onChange={cardNumber} id='number' maxLength="16"/>
           <div className='date-field'>
             <div className='dateone'>
               <h1>EXP. DATE(MM/YY)</h1>
               <div className='inputmmyy'>
-                <input type="text" className='small' placeholder='MM' onChange={cardMonth}/>
-                <input type="text" className='small' placeholder='YY' onChange={cardYear}/>
+                <input type="text" className='small' placeholder='MM' onChange={cardMonth} id='month' maxLength="2"/>
+                <input type="text" className='small' placeholder='YY' onChange={cardYear} id='year' maxLength="2"/>
               </div>
             </div>
             <div className='datetwo'>
-            <h1>cvc</h1>
-            <input type="text" placeholder='e.g. 123' onChange={cardCvc}/>
+            <h1>CVC</h1>
+            <input type="text" placeholder='e.g. 123' onChange={cardCvc} id='cvc' maxLength="3"/>
             </div>
           </div>
           <button>Condirm</button>

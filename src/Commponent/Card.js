@@ -2,6 +2,11 @@ import './Card.css'
 import logo from'../Assets/card-logo.svg'
 
 export default function Card({name,number,month,year}) {
+
+  let carNumber = number;
+
+ 
+
   return (
     <div className="front-card">
         <img src={logo} className='logo' alt='logo'/>
