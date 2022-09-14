@@ -1,7 +1,7 @@
 import './App.css';
 import Card from './Commponent/Card'
-import back from './Assets/bg-card-back.png'
-import { useState } from 'react';
+import Back from './Commponent/Back'
+import {useState,useEffect} from 'react';
 
 
 
@@ -9,38 +9,49 @@ function App() {
 
   const [name, setName] = useState();
   const [number, setNumber] = useState(0);
-  const [month, setMonth] = useState();
-  const [year, setYear] = useState();
-  const [cvc, setCvc] = useState();
+  const [month, setMonth] = useState(0);
+  const [year, setYear] = useState(0);
+  const [cvc, setCvc] = useState(0);
 
+  
 
   function cardholder(event){
       setName(name => name = event.target.value)
       console.log(name);
   }
 
+  function isNumber(error){
+      if(!isNaN(error)){
+        document.activeElement.style.border = '1px solid rgba(0, 0, 0, 0.2)'
+        document.activeElement.style.color = 'black'
+      }else{
+        document.activeElement.style.border = '2px solid red'
+        document.activeElement.style.color = 'red'
+      } 
+  }
+
   function cardNumber(event){
-    setNumber(number => number = event.target.value)
-    console.log(number);
+      setNumber(number => number = event.target.value)  
   }
 
   function cardMonth(event){
     setMonth(month => month = event.target.value)
-    console.log(month);
   }
 
   function cardYear(event){
     setYear(year => year = event.target.value)
-    console.log(year);
   }
 
   function cardCvc(event){
     setCvc(cvc => cvc = event.target.value)
-    console.log(cvc);
   }
 
-
-
+useEffect(()=>{ 
+  isNumber(number)
+  isNumber(month)
+  isNumber(year)
+  isNumber(cvc)
+},[number,month,year,cvc])
 
   return (
     <div className="App">
@@ -48,7 +59,7 @@ function App() {
       <div className='cards'>
           <div className='card'>
             <Card name={name} number={number} month={month} year={year} cvc={cvc}/>
-            <img  src={back} alt='slika2' className='back-card'/>
+            <Back cvc={cvc}/>
           </div>
       </div>
       {/* rigth part of the content */}

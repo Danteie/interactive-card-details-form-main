@@ -1,0 +1,17 @@
+.back-card{
+    position: relative;
+    background-image: url('../Assets/bg-card-back.png');
+    background-repeat: no-repeat;
+    height: 245px;
+    width: 447px;
+    padding: 2rem;
+    color: white;
+    box-sizing:border-box;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cvc{
+    margin-top: 4.3rem;
+    margin-right: 1rem;
+}

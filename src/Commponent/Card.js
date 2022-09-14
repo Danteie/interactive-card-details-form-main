@@ -1,7 +1,7 @@
 import './Card.css'
 import logo from'../Assets/card-logo.svg'
 
-export default function Card({name,number,month,year,cvc}) {
+export default function Card({name,number,month,year}) {
   return (
     <div className="front-card">
         <img src={logo} className='logo' alt='logo'/>
