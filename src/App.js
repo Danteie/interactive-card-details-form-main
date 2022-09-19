@@ -9,11 +9,33 @@ function App() {
 
   const [correct, setCorrect] = useState(() => true);
   const [name, setName] = useState();
-  const [number, setNumber] = useState(() => 0);
-  const [month, setMonth] = useState(() => 0);
-  const [year, setYear] = useState(() => 0);
-  const [cvc, setCvc] = useState(() => 0);
+  const [number, setNumber] = useState(0);
+  const [month, setMonth] = useState(0);
+  const [year, setYear] = useState(0);
+  const [cvc, setCvc] = useState(0);
 
+
+  function isEamty(inputFileds) {
+    for (let index = 0; index < inputFileds.length; index++) {
+      if(inputFileds[index].value){
+        document.getElementsByTagName('button')[0].disabled = false;
+      }else{
+        document.getElementsByTagName('button')[0].disabled = true;
+        return
+      }
+    }
+  }
+
+  function isNumber(inputFileds) {
+    for (let index = 1; index < inputFileds.length; index++) {
+      if(!isNaN(inputFileds[index].value)){
+        inputFileds[index].style.border = '1px solid rgba(0, 0, 0, 0.2)'
+      }else{
+        inputFileds[index].style.border = '3px solid red'
+        document.getElementsByTagName('button')[0].disabled = true;
+      }
+    }
+  }
 
   function page(){
       if(correct){
@@ -34,7 +56,7 @@ function App() {
             </div>
             <div className='datetwo'>
             <h1>CVC</h1>
-            <input type="text" placeholder='e.g. 123' onChange={cardCvc} id='cvc' maxLength="3" required/>
+            <input type="text" placeholder='e.g. 123' onChange={cardCvc} id='cvc' minLength="3" maxLength="3" required/>
             </div>
           </div>
           <button type="submit" onClick={() => setCorrect(false)}>Confirm</button>
@@ -47,21 +69,6 @@ function App() {
 
   function cardholder(event){
       setName(name => name = event.target.value)
-  }
-
-  function isNumber(number,id){
-    if(document.getElementById(id) != null){
-      if(!isNaN(number)){
-        document.getElementById(id).style.border = '1px solid rgba(0, 0, 0, 0.2)'
-        document.getElementById(id).style.color = 'black'
-        return true
-      }else{
-        document.getElementById(id).style.border = '2px solid red'
-        document.getElementById(id).style.color = 'red'
-        return false
-      } 
-    }
-      
   }
 
   function cardNumber(event){
@@ -81,25 +88,12 @@ function App() {
   }
 
 useEffect(()=>{ 
-  
-  if(!isNumber(number,"number")){
-    document.getElementsByTagName('button')[0].disabled = true;
-  }
+  const inputFileds = document.getElementsByTagName("input")
 
-  if(!isNumber(month,"month")){
-    document.getElementsByTagName('button')[0].disabled = true;
-  }
+  isEamty(inputFileds);
+  isNumber(inputFileds);
 
-  if(!isNumber(year,"year")){
-    document.getElementsByTagName('button')[0].disabled = true;
-  }
-
-  if(!  isNumber(cvc,"cvc")){
-    document.getElementsByTagName('button')[0].disabled = true;
-  }
-  
-
-},[number,month,year,cvc])
+},[name,number,month,year,cvc])
 
   return (
     <div className="App">
@@ -116,6 +110,8 @@ useEffect(()=>{
       </div>
     </div>
   );
-}
+
+  } 
+
 
 export default App;
