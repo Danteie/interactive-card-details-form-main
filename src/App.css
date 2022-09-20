@@ -97,7 +97,7 @@ button{
 }
 
 h2{
-  opacity: 0;
+  display:none;
   color: red;
 }
 

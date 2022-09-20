@@ -30,9 +30,11 @@ function App() {
     for (let index = 1; index < inputFileds.length; index++) {
       if(!isNaN(inputFileds[index].value)){
         inputFileds[index].style.border = '1px solid rgba(0, 0, 0, 0.2)'
+        inputFileds[index].nextSibling.style.display = "none";
       }else{
         inputFileds[index].style.border = '3px solid red'
         document.getElementsByTagName('button')[0].disabled = true;
+        inputFileds[index].nextSibling.style.display = "block";
       }
     }
   }
@@ -51,12 +53,15 @@ function App() {
               <h1>EXP. DATE(MM/YY)</h1>
               <div className='inputmmyy'>
                 <input type="text" className='small' placeholder='MM' onChange={cardMonth} id='month' maxLength="2" required/>
+                <h2>Wrotn format, numbers only</h2>
                 <input type="text" className='small' placeholder='YY' onChange={cardYear} id='year' maxLength="2" required/>
+                <h2>Wrotn format, numbers only</h2>
               </div>
             </div>
             <div className='datetwo'>
             <h1>CVC</h1>
             <input type="text" placeholder='e.g. 123' onChange={cardCvc} id='cvc' minLength="3" maxLength="3" required/>
+            <h2>Wrotn format, numbers only</h2>
             </div>
           </div>
           <button type="submit" onClick={() => setCorrect(false)}>Confirm</button>
