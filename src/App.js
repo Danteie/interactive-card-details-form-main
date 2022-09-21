@@ -68,7 +68,13 @@ function App() {
         </form>
         )
       }else{
-        return <h1>Bravo</h1>
+        return (
+          <div className='center'>
+            <h1 className='check'>	&#10003;</h1>
+            <h1 className='thks'>THANK YOU!</h1>
+            <h3>We've added your card details</h3>
+          </div>
+        )
       }
   }
 

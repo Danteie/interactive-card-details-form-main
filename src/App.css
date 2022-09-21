@@ -104,3 +104,23 @@ h2{
 button:disabled{
   opacity: 0.2;
 }
+
+.center{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.check{
+  background-image: url('./Assets/bg-card-front.png');
+  padding: 2rem;
+  border-radius: 50%;
+  font-size: 2rem;
+  color: white;
+  text-align: center
+}
+
+.thks{
+  font-size: 2rem;
+}
+
