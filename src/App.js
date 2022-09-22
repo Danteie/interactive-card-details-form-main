@@ -47,21 +47,25 @@ function App() {
           <input type="text" placeholder='e.g Jane Appleseed' onChange={cardholder} required/>
           <h1>CARD NUMBER</h1>
           <input type="text" placeholder='e.g 1234 5678 9123 0000' onChange={cardNumber} id='number' maxLength="16"/>
-          <h2>Wrotn format, numbers only</h2>
+          <h2>Wrong format, numbers only</h2>
           <div className='date-field'>
             <div className='dateone'>
               <h1>EXP. DATE(MM/YY)</h1>
               <div className='inputmmyy'>
-                <input type="text" className='small' placeholder='MM' onChange={cardMonth} id='month' maxLength="2" required/>
-                <h2>Wrotn format, numbers only</h2>
-                <input type="text" className='small' placeholder='YY' onChange={cardYear} id='year' maxLength="2" required/>
-                <h2>Wrotn format, numbers only</h2>
+                <div>
+                  <input type="text" className='small' placeholder='MM' onChange={cardMonth} id='month' maxLength="2" required/>
+                  <h2>Wrong format</h2>
+                </div>
+                <div>
+                  <input type="text" className='small' placeholder='YY' onChange={cardYear} id='year' maxLength="2" required/>
+                  <h2>Wrong format</h2>
+                </div>   
               </div>
             </div>
             <div className='datetwo'>
             <h1>CVC</h1>
             <input type="text" placeholder='e.g. 123' onChange={cardCvc} id='cvc' minLength="3" maxLength="3" required/>
-            <h2>Wrotn format, numbers only</h2>
+            <h2>Wrong format</h2>
             </div>
           </div>
           <button type="submit" onClick={() => setCorrect(false)}>Confirm</button>
@@ -73,6 +77,7 @@ function App() {
             <h1 className='check'>	&#10003;</h1>
             <h1 className='thks'>THANK YOU!</h1>
             <h3>We've added your card details</h3>
+            <button type="submit" onClick={()=>window.location.reload()} >Continue</button>
           </div>
         )
       }
