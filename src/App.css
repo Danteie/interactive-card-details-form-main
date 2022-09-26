@@ -129,35 +129,36 @@ h3{
   font-size: 1rem;
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1300px) {
   .App{
     display: flex;
     flex-direction: column;
+    height: 100vh;
   }
 
   .cards{
     background-image: url('./Assets/bg-main-desktop.png');
     background-repeat: no-repeat;
     background-size: cover;
-    display: flex;
-    width: 100%;
-    height: 20rem;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+    display: block;
+    width: 100vw;
+    height: 25rem; 
   }
 
   .card{
-    position: relative;
-    left: 0;
-    top: 0;
-  }
-
-  .back-card{
-    position: relative;
+    position: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
+    left: 0;
+  }
+ 
+  .back-card{
+    position: absolute;
     margin-top: 5rem;
-    left: 0rem;
+    right: 1rem;
+    top: 0
   }
 
 }
